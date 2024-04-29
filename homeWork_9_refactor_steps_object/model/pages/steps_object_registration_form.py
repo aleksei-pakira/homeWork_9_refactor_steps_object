@@ -49,7 +49,7 @@ class UserRegistrationPage:
         self.telephone_number.type(telephone_number)
         self.subject_input.type(subject_input)
         self.select_hobbies_dropdown.click()
-        self.current_address.type(current_address)          #street
+        self.current_address.type(current_address)  # street
         self.state.perform(command.js.scroll_into_view)
         self.state.click()
         self.select_state.element_by(have.exact_text(select_state)).click()
@@ -58,7 +58,7 @@ class UserRegistrationPage:
 
     def date_of_birth_calendar(self, year, month, day):
         self.date_of_birth.click()
-        self.date_month_select .type(month)
+        self.date_month_select.type(month)
         self.date_year_select.type(year)
         browser.element(
             f'.react-datepicker__day--0{day}:not(.react-datepicker__day--outside-month)'
@@ -67,8 +67,8 @@ class UserRegistrationPage:
     def submit_form(self):
         self.submit_button.click()
 
-    def should_registered_user_with(self, full_name, email, gender, mobile, date_of_birth, subjects, hobbies, picture,
-                                    address, state_and_city):
+    def should_registered_guest_with(self, full_name, email, gender, mobile, date_of_birth, subjects, hobbies, picture,
+                                     address, state_and_city):
         self.table.even.should(
             have.exact_texts(
                 full_name,
